@@ -25,7 +25,7 @@
       <table>
         <tr>
           <td>账号：</td>
-          <td><input name="username" type="text"></td>
+          <td><input name="username" id="username" type="text"><span id="username-exists"></span></td>
         </tr>
         <tr>
           <td>密码：</td>
@@ -63,6 +63,32 @@
       }
       return true;
     }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function (){
+      console.log("进去");
+      $("#username").blur(function (){
+        var username = $(this).val();
+        $.ajax({
+          url:"user",
+          type:"post",
+          data:{"username":username},
+          success:function (data){
+            console.log(data)
+            if (data.code){
+              $("#username-exists").text("该用户名已存在！")
+            }else {
+              $("#username-exists").text("该用户名不存在！")
+            }
+          },
+          error:function (data){
+            console.log("获取失败")
+          }
+        })
+      })
+    })
   </script>
   </body>
 </html>

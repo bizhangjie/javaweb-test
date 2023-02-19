@@ -74,6 +74,5 @@ public class VipServlet extends HttpServlet {
 //        持久层:DAO+VO(实体类) 功能把数据持久化(保存)到数据库
 //        业务层:Service
 //        表现层:Controller + JSP
-
     }
 }
