@@ -41,6 +41,7 @@ public class UserServlet extends HttpServlet {
             out.write("{\"code\":" + code + "}");
         }catch (Exception e){
             e.printStackTrace();
+
         }
     }
 }
